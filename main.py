@@ -38,6 +38,15 @@ def find_combinations(nums, target_sum):
     # print(combinations)
     return combinations
 
+#       _             _             _           
+#      | |           | |           (_)          
+#   ___| |_ _ __ __ _| |_ ___  __ _ _  ___  ___ 
+#  / __| __| '__/ _` | __/ _ \/ _` | |/ _ \/ __|
+#  \__ \ |_| | | (_| | ||  __/ (_| | |  __/\__ \
+#  |___/\__|_|  \__,_|\__\___|\__, |_|\___||___/
+#                              __/ |            
+#                             |___/             
+
 def most_tiles(choices):
     sort_by_len = sorted(choices, key=len)
     return sort_by_len[-1]
@@ -46,12 +55,42 @@ def fewest_tiles(choices):
     sort_by_len = sorted(choices, key=len)
     return sort_by_len[0]
 
-def higest_tile(choices):
+def highest_tile(choices):
     preferred = [9, 8, 7, 6, 5, 4, 3, 2]
     for p in preferred:
         for choice in choices:
             if p in choice:
                 return choice
+
+def expirement(choices):
+    # preserve sevens
+    for choice in choices:
+        if choice[0] + choice[-1] != 7:
+            return choice
+        else:
+            return highest_tile(choices)
+        
+def adaptive_strategy(choices):
+    # Prioritize fewer tiles when few moves remain to increase win likelihood
+    # Prefer high tiles early, shift to fewest tiles as game progresses
+    if len(choices[0]) > 2:  # If multiple tiles are needed, prioritize high ones
+        return most_tiles(choices)
+    else:  # Near the end, prioritize fewer tiles or lower sums
+        return fewest_tiles(choices)
+    
+def prioritize_low_high(choices):
+    """
+    The "Prioritize Low High" strategy:
+    - If there are many combinations available (suggesting more tiles are still open),
+      it uses the "Fewest Tiles" strategy to close smaller tiles.
+    - If there are only a few combinations available (suggesting fewer open tiles),
+      it uses the "Highest Tile" strategy to prioritize closing higher tiles.
+    """
+    if len(choices[0]) > 2:  # When there are still multiple open tiles, close fewer tiles.
+        return fewest_tiles(choices)
+    return highest_tile(choices)  # When fewer tiles are left, close higher ones.
+
+
 
 
 def random_tiles(choices):
@@ -99,7 +138,7 @@ def play(strategy):
 def main():
     iterations = 100_000
 
-    stratagies = [random_tiles, higest_tile, fewest_tiles, most_tiles]
+    stratagies = [random_tiles, highest_tile, fewest_tiles, most_tiles, expirement, adaptive_strategy, prioritize_low_high]
 
     for stratagy in stratagies:
         wins = 0
@@ -108,6 +147,9 @@ def main():
             wins += play(stratagy)
 
         # report strategy win rate  as a percentage
-        print(f"Win Rate: {wins / iterations * 100:.2f}%\n")        
+        print(f"Win Rate: {wins / iterations * 100:.2f}%")      
+
+        # report stratey win rate as number of times you have to play to expect a win
+        print(f"Win Rate: {1 / (wins / iterations):.0f} games\n")  
 if __name__ == "__main__":
     main()
