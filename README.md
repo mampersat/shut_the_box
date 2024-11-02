@@ -1,6 +1,6 @@
 # Shut the Box
 
-<img src="images/original.jpg" width="512">
+<img src="images/original.jpg" width="830">
 
 ## Simulate the game and find optimal strategy
 ```
