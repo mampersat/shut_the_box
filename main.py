@@ -44,27 +44,18 @@ def make_choice(choices):
     if len(choices) == 1:
         return choices[0]
 
-    # get rid of low value tiles in this order 2, 3, 4, 9, 5, 7, 8, 6
-    for choice in choices:
-        if 2 in choice:
-            return choice
-        if 3 in choice:
-            return choice
-        if 4 in choice:
-            return choice
-        if 9 in choice:
-            return choice
-        if 5 in choice:
-            return choice
-        if 7 in choice:
-            return choice
-        if 8 in choice:
-            return choice
-        if 6 in choice:
-            return choice
+    # fewest tiles
+    # 7%
+    sort_by_len = sorted(choices, key=len)
+    return sort_by_len[0]
 
-    print("got this far... hmmm...")
-    return choice[0]
+    # get rid of low value tiles in this order of preferred list (9->2)
+    # 6.6%
+    preferred = [9, 8, 7, 6, 5, 4, 3, 2]
+    for p in preferred:
+        for choice in choices:
+            if p in choice:
+                return choice
 
     # if one choice is fewer tiles then next choice, pick it
     sort_by_len = sorted(choices, key=len)
@@ -77,15 +68,6 @@ def make_choice(choices):
     # 1%
     sort_by_len = sorted(choices, key=len)
     return sort_by_len[-1]
-
-    # fewest tiles
-    # 7%
-    sort_by_len = sorted(choices, key=len)
-    return sort_by_len[0]
-
-    # last choice... fewest tiles?
-    # 6%
-    return choices[-1]
 
     # Compare last two choices, pick one with out a 7
     # 4.5%
@@ -146,7 +128,8 @@ def play():
 
 def main():
     wins = 0
-    iterations = 1_000_000
+    iterations = 100_000
+
     for i in range(iterations):
         wins += play()
 
