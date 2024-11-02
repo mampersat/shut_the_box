@@ -54,44 +54,7 @@ def higest_tile(choices):
                 return choice
 
 
-def make_choice(choices):
-
-
-    # fewest tiles
-    # 7%
-    sort_by_len = sorted(choices, key=len)
-    return sort_by_len[0]
-
-    # get rid of low value tiles in this order of preferred list (9->2)
-    # 6.6%
-    preferred = [9, 8, 7, 6, 5, 4, 3, 2]
-    for p in preferred:
-        for choice in choices:
-            if p in choice:
-                return choice
-
-    # most tiles
-    # 1%
-
-    # Compare last two choices, pick one with out a 7
-    # 4.5%
-    choice1 = choices[-1]
-    choice2 = choices[-2]
-    if 7 in choice1:
-        return choice2
-    else:
-        return choice1
-
-    # last choice... fewest tiles?
-    # 6%
-    return choices[-1]
-
-    # first choice... most tiles closed?
-    # 1%
-    # return choices[0]
-
-    # random choice
-    # 2%
+def random_tiles(choices):
     return random.choices(choices)[0]
 
 
@@ -136,7 +99,7 @@ def play(strategy):
 def main():
     iterations = 100_000
 
-    stratagies = [higest_tile, fewest_tiles, most_tiles]
+    stratagies = [random_tiles, higest_tile, fewest_tiles, most_tiles]
 
     for stratagy in stratagies:
         wins = 0
@@ -144,7 +107,7 @@ def main():
         for i in range(iterations):
             wins += play(stratagy)
 
-        print(wins / iterations * 100)
-
+        # report strategy win rate  as a percentage
+        print(f"Win Rate: {wins / iterations * 100:.2f}%\n")        
 if __name__ == "__main__":
     main()
