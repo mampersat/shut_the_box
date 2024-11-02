@@ -38,11 +38,24 @@ def find_combinations(nums, target_sum):
     # print(combinations)
     return combinations
 
+def most_tiles(choices):
+    sort_by_len = sorted(choices, key=len)
+    return sort_by_len[-1]
+
+def fewest_tiles(choices):
+    sort_by_len = sorted(choices, key=len)
+    return sort_by_len[0]
+
+def higest_tile(choices):
+    preferred = [9, 8, 7, 6, 5, 4, 3, 2]
+    for p in preferred:
+        for choice in choices:
+            if p in choice:
+                return choice
+
 
 def make_choice(choices):
-    # if only one choice, just return it
-    if len(choices) == 1:
-        return choices[0]
+
 
     # fewest tiles
     # 7%
@@ -57,17 +70,8 @@ def make_choice(choices):
             if p in choice:
                 return choice
 
-    # if one choice is fewer tiles then next choice, pick it
-    sort_by_len = sorted(choices, key=len)
-    choice1 = sort_by_len[0]
-    choice2 = sort_by_len[1]
-    if len(choice1) < len(choice2):
-        return choice1
-
     # most tiles
     # 1%
-    sort_by_len = sorted(choices, key=len)
-    return sort_by_len[-1]
 
     # Compare last two choices, pick one with out a 7
     # 4.5%
@@ -91,7 +95,7 @@ def make_choice(choices):
     return random.choices(choices)[0]
 
 
-def play():
+def play(strategy):
     board = [
         True
     ] * 9  # True represents an open tile, and False represents a closed tile
@@ -114,7 +118,10 @@ def play():
         choices = find_combinations(available_tiles, total_roll)
 
         if choices:
-            chosen_tiles = make_choice(choices)
+            if len(choices) == 1:
+                chosen_tiles = choices[0]
+            else:
+                chosen_tiles = strategy(choices)
 
             # print(f"{chosen_tiles=}")
 
@@ -127,14 +134,17 @@ def play():
 
 
 def main():
-    wins = 0
     iterations = 100_000
 
-    for i in range(iterations):
-        wins += play()
+    stratagies = [higest_tile, fewest_tiles, most_tiles]
 
-    print(wins / iterations * 100)
+    for stratagy in stratagies:
+        wins = 0
+        print(f"stratagy: {stratagy.__name__}")
+        for i in range(iterations):
+            wins += play(stratagy)
 
+        print(wins / iterations * 100)
 
 if __name__ == "__main__":
     main()
