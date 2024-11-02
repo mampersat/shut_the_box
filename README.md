@@ -59,7 +59,7 @@ def main():
 ## Create a version of the game with a laser cutter
 <img src="images/laser_print.png"/>
 
-Shut the Box
+
 ## Useful Links
 
 Here are some useful links for creating a version of the game with a laser cutter and purchasing materials:
