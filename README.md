@@ -75,3 +75,6 @@ Here are some useful links for creating a version of the game with a laser cutte
 
 ## First Pancake
 <img src="images/first pancake.jpg"/>
+
+## Dice
+<img src="images/dice.jpg"/>
