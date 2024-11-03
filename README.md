@@ -103,3 +103,17 @@ Initial Findings
 
 The tree is already revealing that closing fewer tiles with each roll seems to increase the probability of reaching a winning state in many configurations. However, the model is still running for more exhaustive coverage.
 ```
+
+## Acknowledgments
+
+This design was created using the **boxes.py** libraries and tools, which are licensed under the [GNU General Public License (GPL)](https://www.gnu.org/licenses/gpl-3.0.en.html). Many thanks to the contributors of boxes.py for their work in making these tools available!
+
+* [boxes.py project link](https://github.com/florianfesti/boxes)
+
+## Usage
+
+To use this design, simply download the files and load them into your laser cutter software. Make any adjustments you like for non-commercial personal use.
+
+## License
+
+This project is licensed under the [CC BY-NC License](https://creativecommons.org/licenses/by-nc/4.0/).
