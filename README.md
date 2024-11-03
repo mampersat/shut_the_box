@@ -76,5 +76,30 @@ Here are some useful links for creating a version of the game with a laser cutte
 ## First Pancake
 <img src="images/first pancake.jpg"/>
 
+### Notes after playing with v1.0
+1. Lots of fine tuning on laser cutter config stuff like kerfs. Not sure if these should be put into the design or kept in configs to handle different material
+1. Lid is WAY to tall. Could be 10mm (vs. 40mm .) This might add strain on the hunge when it's open on a flat surface though. Consider hinge placement to support opening more than 180d to prevent hinge stress.
+1. Spacers are key to keeping things from rubbing. [Tile box with additional supports needs](images/intra-tile-supports.png) tiles to be just a smidge narrower so 2 more spaces can fir next to the supports
+1. Rob holding supports can be smaller/less material. Add more trimming/rounding on upper front corner.
+1. Fill in the numbers
+1. Random frog behind the 9 tile was an awesomely awesome accident
+1. Plex lid needs the supports, just glue is very prone to seperation on box shut. Doesn't need all four - but some way to anchor it vertically is needed if not using glue
+1. Tile holder should be taller so the back pieces are flush with the top of the bottom box. Original has this, makes tile "grabbing" cleaner
+1. Overall fit - tight fit makes it difficult to glue with hot glue. Maybe with wood glue this isn't a problem
+1. Tile holder is too long. The "resting" piece in the front could be moved back quite a bit.
+1. Lots of design elements burn through to the other side
+1. Tile width - as above, get width right. Should fit 12 spacers + 2 supports
+1. Tile height - had to sand a couple to get them to flip w/o scraping the bottom. Lowering the grove would help. I like the height now. Feels right
+1. Flair: Leaves on corners is good but could be better.
+
 ## Dice
 <img src="images/dice.jpg"/>
+
+## Teaching ChatGPT to play
+[Full ChatGPT Session](https://chatgpt.com/share/67279330-a8f8-8009-9172-d0ac83a69630)
+### tl;dr;
+```
+Initial Findings
+
+The tree is already revealing that closing fewer tiles with each roll seems to increase the probability of reaching a winning state in many configurations. However, the model is still running for more exhaustive coverage.
+```
