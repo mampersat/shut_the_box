@@ -11,16 +11,15 @@
   * No combination can be flipped down, player loses
 
 ```mermaid
-flowchart TD
-    A[Start] --> B[Flip all tiles UP]
-    B --> C[Roll the dice]
+flowchart LR
+    A[Start<br>All tiles UP] 
+    A --> C[Roll the dice]
     C --> D{Can tiles be flipped down to match the roll?}
     D -->|Yes| E[Flip DOWN tiles that add up to total number rolled]
-    E --> C
-    D -->|No| F[Player loses]
-    E --> G{Are all tiles flipped down?}
-    G -->|Yes| H[Player wins]
+    E --> G{All tiles flipped down?}
+    G -->|Yes| H[Win]
     G -->|No| C
+    D -->|No| F[Loss]
 ```
 
 
@@ -104,6 +103,10 @@ Initial Findings
 The tree is already revealing that closing fewer tiles with each roll seems to increase the probability of reaching a winning state in many configurations. However, the model is still running for more exhaustive coverage.
 ```
 
+# Licensing
+
+This repository contains the design files for a laser-cut toy, shared under the [Creative Commons Attribution-NonCommercial (CC BY-NC) License](https://creativecommons.org/licenses/by-nc/4.0/). Feel free to use and modify the design for non-commercial purposes, but please provide credit.
+
 ## Acknowledgments
 
 This design was created using the **boxes.py** libraries and tools, which are licensed under the [GNU General Public License (GPL)](https://www.gnu.org/licenses/gpl-3.0.en.html). Many thanks to the contributors of boxes.py for their work in making these tools available!
@@ -117,3 +120,4 @@ To use this design, simply download the files and load them into your laser cutt
 ## License
 
 This project is licensed under the [CC BY-NC License](https://creativecommons.org/licenses/by-nc/4.0/).
+
