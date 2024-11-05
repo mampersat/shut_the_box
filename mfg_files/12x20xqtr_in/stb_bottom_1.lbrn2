@@ -75,8 +75,7 @@
     <CutSetting type="Scan">
         <index Value="6"/>
         <name Value="C06"/>
-        <minPower Value="15"/>
-        <maxPower Value="15"/>
+        <maxPower Value="20"/>
         <maxPower2 Value="20"/>
         <speed Value="500"/>
         <dotTime Value="1"/>
