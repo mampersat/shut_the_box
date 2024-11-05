@@ -58,6 +58,13 @@ def main():
 ## Create a version of the game with a laser cutter
 <img src="images/laser_print.png"/>
 
+<br>
+
+[Google Sheet with form results](https://docs.google.com/spreadsheets/d/1yn5Eh5GT0bTLnz733DHPlXRZ6Ic_3S1SKieyFxyu0jI/edit?usp=sharing)
+
+## The Plaque
+I got a bunch of blank plaques from a local auction, and it's not hard to burn stuff on to them. So I'm immortalizing all valid looking submissions (validty 100% my perrogitive) onto a plaque you can also burn at your lesiure.
+<img src="images/plaque.png"/>
 
 ## Useful Links
 
