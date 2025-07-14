@@ -109,6 +109,9 @@ Initial Findings
 
 The tree is already revealing that closing fewer tiles with each roll seems to increase the probability of reaching a winning state in many configurations. However, the model is still running for more exhaustive coverage.
 ```
+## Strategy Website
+
+https://www.durangobill.com/ShutTheBoxExtra/STB_1DIE.txt
 
 # Licensing
 
